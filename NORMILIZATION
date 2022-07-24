@@ -1,0 +1,195 @@
+SCHEMA REFINEMENT: 
+
+NORMALIZATION:
+Normalisation or Schema Refinement is a technique of organizing the data in the database. It is a systematic approach of decomposing tables to eliminate data redundancy and undesirable characteristics like Insertion, Update and Deletion Anomalies.
+DEPENDENCIES:
+1. A full functional dependency is a state of database normalization that equates to the normalization standard of Second Normal Form (2NF). In brief, this means that it meets the requirements of First Normal Form (1NF), and all non-key attributes are fully functionally dependent on the primary key.
+2. Partial Dependency occurs when a non-prime attribute is functionally dependent on part of a candidate key. The 2nd Normal Form (2NF) eliminates the Partial Dependency.
+3. A transitive dependency in a database is an indirect relationship between values in the same table that causes a functional dependency. To achieve the normalization standard of Third Normal Form (3NF), you must eliminate any transitive dependency.
+4.The Trivial dependency is a set of attributes which are called a trivial if the set of attributes are included in that attribute. So, X -> Y is a trivial functional dependency if Y is a subset of X.
+5. Non Trivial Functional Dependency ,Functional dependency which also known as a nontrivial dependency occurs when A->B holds true where B is not a subset of A. In a relationship, if attribute B is not a subset of attribute A, then it is considered as a non-trivial dependency.
+KEYS:
+1.PRIMARY KEY
+primary key is a column of a table or a set of columns that helps to identify every record present in that table uniquely. There can be only one primary Key in a table. Also, the primary Key cannot have the same values repeating for any row. Every value of the primary key has to be different with no repetitions
+2.SUPER KEY
+super key with no redundant attribute is known as candidate key. Candidate keys are selected from the set of super keys, the only thing we take care while selecting candidate key is that the candidate key should not have any redundant attributes.
+
+#CUSTOMER:
+FUNCTIONAL DEPENDENCY:
+CUSTOMERID-->CUSTOMERNAME
+CUSTOMERID-->PHONENUMBER
+CUSTOMERID-->EMAILID
+CUSTOMERID-->ADDRESS
+KEY ATTRIBUTES:CUSTOMERID
+Here we need to check whether the given dependency are in 1nf  ,2nf,3nf
+INF:
+The given dependencies are in 1nf because all the dependencies are single valued they did not have any multi valued
+2NF:
+To say that the functional dependencies arein 2nf ,intially they should in 1nf and no partial dependency.here in the above fd’s there is no partial dependency because the fd’s are mapped from key attribute to the non key attribute.so it is in 2nf.
+3NF:
+To say that the fd’s are in 3nf ,it should be in 2nf and no transitive property.form the above fd’s, there is no transitive property because as no other non key from key is not determining the other non key as ab and bc then this is a transitive property.
+
+#ART GALLERY:
+FUCTIONAL DEPENDENCIES:
+ARTID-->ARTNAME
+ARTID-->TYPEOFPAINTING
+TYPEOFPAINTING-->COST
+KEY ATTRIBUTES:ARTID
+INF:
+The given dependencies are in 1nf because all the dependencies are single valued they did not have any multi valued
+2NF:
+To say that the functional dependencies are in 2nf ,initially they should in 1nf and no partial dependency. Here in the above fd’s there is no partial dependency because the fd’s are mapped from key attribute to the non key attribute.so it is in 2nf.
+3NF:
+To say that the fd’s are in 3nf ,it should be in 2nf and no transitive property. Form the above fd’s, there is transitive property 
+ARTID-->TYPEOFPAINTING
+TYPEOFPAINTING-->COST
+For these dependencies there is a transitive property.so we need to decomposition of table occurs to remove the transitive property.
+We decompose the table in to two parts:
+Artid,artname,typeofpainting in one table and typeofpainting,cost in one table 
+Then by this transitive property removes
+Loseless,dependency and foreign key are should be reserved
+So it is in 3nf
+
+SIGNUP:
+CUSTOMERID-->PASSWORD
+CUSTOMERID-->ARTID
+KEYATTRIBUTES:CUSTOMERID
+INF:
+The given dependencies are in 1nf because all the dependencies are single valued they did not have any multi valued
+2NF:
+To say that the functional dependencies arein 2nf ,intially they should in 1nf and no partial dependency.here in the above fd’s there is no partial dependency because the fd’s are mapped from key attribute to the non key attribute.so it is in 2nf.
+3NF:
+To say that the fd’s are in 3nf ,it should be in 2nf and no transitive property.form the above fd’s, there is no transitive property because as no other non key from key is not determining the other non key as ab and bc then this is a transitive property.
+
+ARTIST:
+ARTISTID-->ARTISTNAME
+ARTISTID-->PHONENUMBER
+ARTISTID-->ADDRESS
+KEYATTIBUTES:ARTISTID
+INF:
+The given dependencies are in 1nf because all the dependencies are single valued they did not have any multi valued
+2NF:
+To say that the functional dependencies arein 2nf ,intially they should in 1nf and no partial dependency.here in the above fd’s there is no partial dependency because the fd’s are mapped from key attribute to the non key attribute.so it is in 2nf.
+3NF:
+To say that the fd’s are in 3nf ,it should be in 2nf and no transitive property.form the above fd’s, there is no transitive property because as no other non key from key is not determining the other non key as ab and bc then this is a transitive property.
+
+PAINTS:
+ARTISTID,ARTID-->DATEOFPAINTING
+COMPOSITE KEY:ARTISTID,ARTID
+INF:
+The given dependencies are in 1nf because all the dependencies are single valued they did not have any multi valued
+2NF:
+To say that the functional dependencies arein 2nf ,intially they should in 1nf and no partial dependency.here in the above fd’s there is no partial dependency because the fd’s are mapped from key attribute to the non key attribute.so it is in 2nf.
+3NF:
+To say that the fd’s are in 3nf ,it should be in 2nf and no transitive property.form the above fd’s, there is no transitive property because as no other non key from key is not determining the other non key as ab and bc then this is a transitive property.
+
+#BILL:
+BILLID,ARTID-->DATE
+COMPOSITE KEY:  BILLID,ARTID
+INF:
+The given dependencies are in 1nf because all the dependencies are single valued they did not have any multi valued
+2NF:
+To say that the functional dependencies arein 2nf ,intially they should in 1nf and no partial dependency.here in the above fd’s there is no partial dependency because the fd’s are mapped from key attribute to the non key attribute.so it is in 2nf.
+3NF:
+To say that the fd’s are in 3nf ,it should be in 2nf and no transitive property.form the above fd’s, there is no transitive property because as no other non key from key is not determining the other non key as ab and bc then this is a transitive property.
+
+#ORDERS:
+BILLID-->COST
+BILLID-->NOOFPAINTING
+KEY ATTRIBUTES:BILLID
+INF:
+The given dependencies are in 1nf because all the dependencies are single valued they did not have any multi valued
+2NF:
+To say that the functional dependencies arein 2nf ,intially they should in 1nf and no partial dependency.here in the above fd’s there is no partial dependency because the fd’s are mapped from key attribute to the non key attribute.so it is in 2nf.
+3NF:
+To say that the fd’s are in 3nf ,it should be in 2nf and no transitive property.form the above fd’s, there is no transitive property because as no other non key from key is not determining the other non key as ab and bc then this is a transitive property.
+
+#DISCOUNTS:
+PERCENTAGE:AMOUNT
+KEY ATTIBUTES: PERCENTAGE
+INF:
+The given dependencies are in 1nf because all the dependencies are single valued they did not have any multi valued
+2NF:
+To say that the functional dependencies arein 2nf ,intially they should in 1nf and no partial dependency.here in the above fd’s there is no partial dependency because the fd’s are mapped from key attribute to the non key attribute.so it is in 2nf.
+3NF:
+To say that the fd’s are in 3nf ,it should be in 2nf and no transitive property.form the above fd’s, there is no transitive property because as no other non key from key is not determining the other non key as ab and bc then this is a transitive property.
+
+#ATTAINS:
+BILLID-->PERCENTAGE
+KEY ATTRIBUTES:BILLID
+INF:
+The given dependencies are in 1nf because all the dependencies are single valued they did not have any multi valued
+2NF:
+To say that the functional dependencies are in 2nf , initially they should in 1nf and no partial dependency.  here in the above fd’s there is no partial dependency because the fd’s are mapped from key attribute to the non key attribute.so it is in 2nf.
+3NF:
+To say that the fd’s are in 3nf ,it should be in 2nf and no transitive property.form the above fd’s, there is no transitive property because as no other non key from key is not determining the other non key as ab and bc then this is a transitive property.
+
+VISITANT:
+VISITORID-->VISITIOTNAME
+VISITORID-->EMAIL
+KEY ATTRIBUTE:VISITORID
+INF:
+The given dependencies are in 1nf because all the dependencies are single valued they did not have any multi valued
+2NF:
+To say that the functional dependencies arein 2nf ,intially they should in 1nf and no partial dependency.here in the above fd’s there is no partial dependency because the fd’s are mapped from key attribute to the non key attribute.so it is in 2nf.
+3NF:
+To say that the fd’s are in 3nf ,it should be in 2nf and no transitive property.form the above fd’s, there is no transitive property because as no other non key from key is not determining the other non key as ab and bc then this is a transitive property.
+
+#VIP:
+VISITORID-->VISITORNAME
+VISITORID-->DATE
+VISITORID-->ENDTIME
+VISTIORID-->STARTTIME
+KEY ATTIBUTES: VISITORID
+INF:
+The given dependencies are in 1nf because all the dependencies are single valued they did not have any multi valued
+2NF:
+To say that the functional dependencies arein 2nf ,intially they should in 1nf and no partial dependency.here in the above fd’s there is no partial dependency because the fd’s are mapped from key attribute to the non key attribute.so it is in 2nf.
+3NF:
+To say that the fd’s are in 3nf ,it should be in 2nf and no transitive property.form the above fd’s, there is no transitive property because as no other non key from key is not determining the other non key as ab and bc then this is a transitive property.
+
+#NORMALVISITOR:
+VISITORID-->VISITORNAME
+VISITORID-->DATE
+VISITORID-->ENDTIME
+VISTIORID-->STARTTIME
+KEY ATTIBUTES: VISITORID
+INF:
+The given dependencies are in 1nf because all the dependencies are single valued they did not have any multi valued
+2NF:
+To say that the functional dependencies arein 2nf ,Intially they should in 1nf and no partial dependency. here in the above fd’s there is no partial dependency because the fd’s are mapped from key attribute to the non key attribute.so it is in 2nf.
+3NF:
+To say that the fd’s are in 3nf ,it should be in 2nf and no transitive property. form the above fd’s, there is no transitive property because as no other non key from key is not determining the other non key as ab and bc then this is a transitive property.
+
+#EXHIBITION:
+EXHIBITIONID-->EXHIBITIONNAME
+EXHIBITIONID-->DATE
+EXHIBITIONID-->STARTTIME
+EXHIBITIONID-->ENDTIME
+KEY ATTRIBUTES:EXHIBITIONID
+INF:
+The given dependencies are in 1nf because all the dependencies are single valued they did not have any multi valued
+2NF:
+To say that the functional dependencies arein 2nf ,intially they should in 1nf and no partial dependency.here in the above fd’s there is no partial dependency because the fd’s are mapped from key attribute to the non key attribute.so it is in 2nf.
+3NF:
+To say that the fd’s are in 3nf ,it should be in 2nf and no transitive property.form the above fd’s, there is no transitive property because as no other non key from key is not determining the other non key as ab and bc then this is a transitive property.
+
+#VISITS:
+EXHIBITIONID,VISITORID-->DATEOFEXHIBITION
+KEY ATTRIBUTES: EXHIBITIONID,VISITORID
+INF:
+The given dependencies are in 1nf because all the dependencies are single valued they did not have any multi valued
+2NF:
+To say that the functional dependencies arein 2nf ,intially they should in 1nf and no partial dependency.here in the above fd’s there is no partial dependency because the fd’s are mapped from key attribute to the non key attribute.so it is in 2nf.
+3NF:
+To say that the fd’s are in 3nf ,it should be in 2nf and no transitive property.form the above fd’s, there is no transitive property because as no other non key from key is not determining the other non key as ab and bc then this is a transitive property.
+
+#REGISTER:
+REGISTERID-->DATEOFEXHIBUTION
+KEY ATTIBUTES:REGISTERID
+1NF:
+The given dependencies are in 1nf because all the dependencies are single valued they did not have any multi valued
+2NF:
+To say that the functional dependencies arein 2nf ,intially they should in 1nf and no partial dependency.here in the above fd’s there is no partial dependency because the fd’s are mapped from key attribute to the non key attribute.so it is in 2nf.
+3NF:
+To say that the fd’s are in 3nf ,it should be in 2nf and no transitive property.form the above fd’s, there is no transitive property because as no other non key from key is not determining the other non key as ab and bc then this is a transitive property.
